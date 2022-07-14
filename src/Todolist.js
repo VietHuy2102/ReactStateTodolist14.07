@@ -6,15 +6,15 @@ class Todolist extends React.Component {
         this.state = {title:"",summary:"",form:[]}
     }
 
-    onchangeTitle = (e) =>{
+    onchangeform = (e) =>{
         this.setState({
             title: e.target.value,
             summary: e.target.value,
-
         })
 
-
+        console.log(this.state)
     }
+
     handleSubmit = (e) =>{
         e.preventDefault()
         this.state = "";
@@ -30,7 +30,8 @@ class Todolist extends React.Component {
             <>
                 <h1>My Tasks</h1>
                 <ul>
-                    {this.state.form.map((e)=><li>{e}</li>)}
+                    <li>{this.state.title}</li>
+                    <li>{this.state.summary}</li>
                 </ul>
                 <>
                     <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
@@ -49,11 +50,11 @@ class Todolist extends React.Component {
                                     <form>
                                         <div className="form-group">
                                             <label htmlFor="recipient-name" className="col-form-label">Title</label>
-                                            <input type="text" className="form-control" id="recipient-name" onChange={this.onchangeTitle}/>
+                                            <input type="text" className="form-control" id="recipient-name" onChange={this.onchangeform}/>
                                         </div>
                                         <div className="form-group">
                                             <label htmlFor="message-text" className="col-form-label">Summary</label>
-                                            <textarea className="form-control" id="message-text" defaultValue={""} onChange={this.onchangeTitle}/>
+                                            <textarea className="form-control" id="message-text" defaultValue={""} onChange={this.onchangeform}/>
                                         </div>
                                     </form>
                                 </div>
